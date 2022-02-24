@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: {{#toAlphaNumericString imageRepository 50}}{{/toAlphaNumericString}} 
+  name: lotus-finsights-gst
 spec:
   replicas: 1
   selector:
-    matchLabels:
-      app: {{#toAlphaNumericString imageRepository 50}}{{/toAlphaNumericString}}
+    matchLabels: lotus-finsights-gst
+      app: 
   template:
     metadata:
       labels:
-        app: {{#toAlphaNumericString imageRepository 50}}{{/toAlphaNumericString}} 
+        app: lotus-finsights-gst 
     spec:
       containers:
-        - name: {{#toAlphaNumericString imageRepository 50}}{{/toAlphaNumericString}} 
-          image: {{ containerRegistryConnection.Authorization.Parameters.loginServer }}/{{#toAlphaNumericString imageRepository 50}}{{/toAlphaNumericString}}
+        - name: lotus-finsights-gst 
+          image: barghav lotus wireless/lotus-finsights-gst
           ports:
-          - containerPort: {{ servicePort }}
+          - containerPort: 80
